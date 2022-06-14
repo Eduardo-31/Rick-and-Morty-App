@@ -22,14 +22,17 @@ function App() {
           <input name='name' type="text" placeholder='type a location id' autoComplete='off' />
           <button>Search</button>
         </form>
+        {!location?
+          <Loading /> :
         <CardLocation 
-          location={location} />
+          location={location} />}
       </header>
    
     
          <div className='container-residents'>
 
-        {
+        {!location?
+          <Loading /> :
           location?.residents.map(resident => (
             <CardResidentInfo 
               resident={resident}

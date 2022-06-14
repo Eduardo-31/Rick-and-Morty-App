@@ -1,5 +1,6 @@
 import React from 'react'
 import useResidents from '../hooks/useResidents'
+import Loading from './Loading'
 
 const CardResidentInfo = ({resident}) => {
 
@@ -9,7 +10,10 @@ const CardResidentInfo = ({resident}) => {
 
   return (
     <div className='card-residents'>
-        <img src={residents?.image} alt={`image ${residents?.name}`} />
+        {!residents ?
+          <Loading /> :
+          <img src={residents?.image} alt={`image ${residents?.name}`} />
+        }
         <h4> {residents?.name} </h4>
         <span>Status:</span>
         <p> {residents?.status} </p>

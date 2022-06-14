@@ -2,7 +2,6 @@
 .container-loading {
     margin: 0;
     padding: 0;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +19,7 @@
     margin: 8px;
     border-radius: 50%;
     border: 10px solid #fff;
-    border-color: #ffffff transparent #ffffff  transparent;
+    border-color: #98ce4c transparent #98ce4c  transparent;
     animation: lds-dual-ring 1.2s linear infinite;
   }
   @keyframes lds-dual-ring {
