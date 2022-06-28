@@ -43,6 +43,10 @@ input::placeholder {
   color: rgb(167, 167, 167);
 }
 
+input:focus {
+  outline: none;
+}
+
 form{
   box-shadow: 0 0 5px;
   width: max-content;
@@ -62,6 +66,9 @@ button{
  background-color: rgb(51, 50, 50);
 }
 
+button:active {
+  transform: translateY(2px);
+}
 
 .container-location {
   position: relative;
@@ -104,9 +111,71 @@ h3 {
 }
 
 
+/* pagination.. */
+.container-pagination {
+  margin: 42px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-weight: 600;
+}
+
+.container-pagination button {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #ffffff;
+  cursor: pointer;
+  background-color: rgb(39, 38, 38);
+  transition:  ease 0.4s;
+}
+
+.container-pagination button:hover {
+  transition:  ease 0.4s;
+  transform: translateY(-2px);
+}
+
+.container-pagination button i{
+  font-size: 1.2rem;
+}
+
+ul {
+  background-color: rgb(219, 219, 219);
+  color: rgb(8, 8, 8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:  ease 0.4s;
+}
+
+ul:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  transition:  ease 0.6s;
+}
+
+li {
+  font-size: 1.2rem;
+}
+
+.active {
+  background-color: #97ce4c;
+}
+
+
 
 .container-residents {
-  padding: 60px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -114,6 +183,10 @@ h3 {
   gap: 60px;
   width: 90%;
   margin: 0 auto;
+}
+
+.padding-50 {
+  padding: 60px 0;
 }
 
 .card-residents {
@@ -287,7 +360,6 @@ h1 {
   }
 
   .container-residents {
-    padding: 60px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -397,7 +469,6 @@ h1 {
 
 
   .container-residents {
-    padding: 60px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -523,8 +594,32 @@ text-shadow: 0 1px 0 	#44281d,
   }
 
 
+  .container-pagination {
+    margin: 40px 0;
+    gap: 18px;
+    font-weight: 800;
+  }
+  
+  .container-pagination button {
+    height: 33px;
+    width: 33px;
+  }
+  
+  .container-pagination button i{
+    font-size: 1.1rem;
+  }
+  
+  ul {
+    width: 30px;
+    height: 30px;
+  }
+  
+  li {
+    font-size: 1rem;
+  }
+
+
   .container-residents {
-    padding: 40px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -617,8 +712,31 @@ text-shadow: 0 1px 0 	#44281d,
   }
 
 
+  .container-pagination {
+    margin: 40px 0;
+    gap: 15px;
+    font-weight: 700;
+  }
+  
+  .container-pagination button {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .container-pagination button i{
+    font-size: 1rem;
+  }
+  
+  ul {
+    width: 28px;
+    height: 28px;
+  }
+  
+  li {
+    font-size: 1rem;
+  }
+
   .container-residents {
-    padding: 50px 0;
     gap: 35px;
     width: 90%;
   }
@@ -697,6 +815,30 @@ text-shadow: 0 1px 0 	#44281d,
     font-size: 12px;
   }
   
+  .container-pagination {
+    margin: 30px 0;
+    gap: 13px;
+    font-weight: 700;
+  }
+  
+  .container-pagination button {
+    height: 28px;
+    width: 28px;
+  }
+  
+  .container-pagination button i{
+    font-size: 0.9rem;
+  }
+  
+  ul {
+    width: 25px;
+    height: 25px;
+  }
+  
+  li {
+    font-size: 0.9rem;
+  }
+
   .card-residents {
     padding-bottom: 13px;
     /*min-height: 550px;*/
