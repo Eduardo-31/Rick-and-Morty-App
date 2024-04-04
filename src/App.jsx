@@ -5,20 +5,25 @@ import CardResidentInfo from './components/CardResidentInfo'
 import React, { useEffect, useState } from 'react'
 import Loading from './components/Loading'
 import Pagination from './components/Pagination'
-
+import iconSearchNotFound from '../src/img/Rick-SearchNotFound .gif'
 function App() {
   
   const [search, setSearch] = useState()
   
-  const {location} = useLocation(search)
+  const {location, locationError} = useLocation(search)
 
   // status for pagination
   const [currentPages, setCurrentPages] = useState(1)
 
-  const searchLocation = e => {
+  const searchLocation = (e) => {
+    
     e.preventDefault()
-    setSearch(e.target.name.value)
-    Form.reset()
+    const value = e.target.name.value
+    if(value){
+      console.log('first')
+      setSearch(value.toLowerCase())
+      Form.reset()
+    }
   }
 
   // pagination logic
@@ -48,20 +53,33 @@ function App() {
   return (
 
     <div className="App">
-       
+      {
+        locationError && 
+          <div className='card-search-error'>
+            <div className='card-search-error__content'>
+              <a><i class="fa-solid fa-exclamation"></i></a>
+              <p className='card-search-error__text'>Search not found</p>
+            </div>
+            <div className='card-search-error__img'>
+              <img src={iconSearchNotFound} alt="" />
+            </div>
+          </div>
+      }
     
       <header>
+
         <div className='title'>
           <h1>Rick and Morty</h1>
         </div>
-        <form onSubmit={searchLocation} id="Form" >
-          <input name='name' type="text" placeholder='type a location id' autoComplete='off' />
+        <form className='header-search-form' onSubmit={searchLocation} id="Form" >
+          <input name='name' type="text" placeholder='origin or location' autoComplete='off' />
           <button>Search</button>
         </form>
-        {!location?
-          <Loading /> :
+
         <CardLocation 
-          location={location} />}
+          location={location}
+        />
+
       </header>
    
       { 
@@ -76,15 +94,14 @@ function App() {
     
       <div className={ quantityPages <= 1 ? 'container-residents padding-50' : 'container-residents'}>
 
-        {!location?
-          <Loading /> :
+        { location && 
           arrayResidents?.map(resident => (
             <CardResidentInfo 
-              resident={resident}
+              url={resident}
               key={resident}
             />
             ))
-          }
+        }
 
       </div>   
       
@@ -96,6 +113,11 @@ function App() {
         setCurrentPages={setCurrentPages}
         quantityPages={quantityPages}
         />
+      }
+
+      {
+        !location && 
+        <Loading />
       }
 
     </div>

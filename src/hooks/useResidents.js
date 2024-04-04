@@ -1,18 +1,15 @@
 import axios from "axios"
 import { useEffect, useState } from 'react'
 
-const useResidents = (x) => {
+const useResidents = (url) => {
 
 
     const [residents, setResidents] = useState()
 
     useEffect(() => {
-      
-      const URL = x
-        axios.get(URL)
+        axios.get(url)
           .then(res => setResidents(res.data))
           .catch(err => console.log(err))
-
     }, [])
  
 

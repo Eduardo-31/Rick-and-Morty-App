@@ -6,14 +6,19 @@ const CardLocation = ({location}) => {
    
   return (
     <div className='container-location'>
-      <div className='card-name'>
-        <h2> {location?.name} </h2>
-      </div>
-      <div className='card-location'>
-        <h3> <span>Type: </span> {location?.type} </h3>
-        <h3> <span>Dimension: </span> {location?.type} </h3>
-        <h3> <span>Population: </span> {location?.residents.length} </h3>
-      </div>
+      {
+        location &&
+        <>
+          <div className='card-name'>
+            <h2> {location?.name} </h2>
+          </div>
+          <div className='card-location'>
+            <h3> <span>Type: </span> {location?.type} </h3>
+            <h3> <span>Dimension: </span> {location?.dimension} </h3>
+            <h3> <span>Population: </span> {location?.residents.length} </h3>
+          </div>
+        </>
+      }
     </div>
   )
 }
